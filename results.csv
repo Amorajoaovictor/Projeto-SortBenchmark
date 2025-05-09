@@ -1,0 +1,10 @@
+BubbleSort,1000,12
+ParallelBubbleSort,1000,20
+BubbleSort,5000,43
+ParallelBubbleSort,5000,23
+BubbleSort,10000,191
+ParallelBubbleSort,10000,4
+BubbleSort,50000,5332
+ParallelBubbleSort,50000,13
+BubbleSort,100000,21570
+ParallelBubbleSort,100000,28
