@@ -2,7 +2,9 @@ package main.java.parallel;
 
 import java.util.concurrent.RecursiveAction;
 
-public class ParallelQuickSort extends RecursiveAction {
+import main.java.sorters.Sorter;
+
+public class ParallelQuickSort extends RecursiveAction implements Sorter {
     private final int[] array;
     private final int start;
     private final int end;
@@ -49,5 +51,11 @@ public class ParallelQuickSort extends RecursiveAction {
 
         int temp = arr[i + 1]; arr[i + 1] = arr[high]; arr[high] = temp;
         return i + 1;
+    }
+
+    @Override
+    public void sort(int[] array) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'sort'");
     }
 }
