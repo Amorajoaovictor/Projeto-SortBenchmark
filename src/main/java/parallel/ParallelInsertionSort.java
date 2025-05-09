@@ -2,7 +2,15 @@ package main.java.parallel;
 
 import java.util.concurrent.RecursiveAction;
 
-public class ParallelInsertionSort extends RecursiveAction {
+import main.java.sorters.Sorter;
+
+public class ParallelInsertionSort extends RecursiveAction implements Sorter {
+
+    @Override
+    public void sort(int[] array) {
+        ParallelInsertionSort task = new ParallelInsertionSort(array, 0, array.length - 1);
+        task.invoke();
+    }
     private final int[] array;
     private final int start;
     private final int end;
