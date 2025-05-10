@@ -3,25 +3,24 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Carregar dados
-df = pd.read_csv('../../results.csv', names=['Algoritmo', 'Tamanho', 'Tempo'])
+# Load data
+data = pd.read_csv('../../results.csv', names=['Algorithm', 'Size', 'Time'])
 
-st.title("Análise de Desempenho dos Algoritmos de Ordenação")
-st.write("Este aplicativo compara o desempenho de diferentes algoritmos de ordenação com base no tempo de execução.")
+st.title("Sorting Algorithms Performance Analysis")
+st.write("This app compares the performance of different sorting algorithms based on execution time.")
 
-# Filtro por algoritmo
-algoritmos = df['Algoritmo'].unique()
-algoritmos_selecionados = st.multiselect("Escolha os algoritmos para comparar:", algoritmos, default=algoritmos)
+# Filter by algorithm
+algorithms = data['Algorithm'].unique()
+selected_algorithms = st.multiselect("Select algorithms to compare:", algorithms, default=algorithms)
 
-# Filtrar dados
-df_filtrado = df[df['Algoritmo'].isin(algoritmos_selecionados)]
+# Filter data
+filtered_data = data[data['Algorithm'].isin(selected_algorithms)]
 
-# Gráfico de desempenho
+# Performance chart
 fig, ax = plt.subplots(figsize=(10, 6))
-sns.lineplot(data=df_filtrado, x='Tamanho', y='Tempo', hue='Algoritmo', marker='o', ax=ax)
-plt.title("Tempo de Execução por Algoritmo")
-plt.xlabel("Tamanho do Array")
-plt.ylabel("Tempo (ms)")
+sns.lineplot(data=filtered_data, x='Size', y='Time', hue='Algorithm', marker='o', ax=ax)
+plt.title("Execution Time by Algorithm")
+plt.xlabel("Array Size")
+plt.ylabel("Time (ms)")
 plt.grid(True)
-
 st.pyplot(fig)
